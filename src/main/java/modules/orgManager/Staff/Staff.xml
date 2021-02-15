@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://www.skyve.org/xml/document"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Staff"
+	xsi:schemaLocation="http://www.skyve.org/xml/document ../../../schemas/document.xsd">
+	<persistent name="ORG_Staff" />
+	<singularAlias>Staff</singularAlias>
+	<pluralAlias>Staff</pluralAlias>
+	<iconStyleClass>fa fa-building</iconStyleClass>
+	<bizKey expression="{code}" />
+	<attributes>
+		<text name="code">
+			<displayName>Code</displayName>
+			<length>50</length>
+		</text>
+		<text name="name">
+			<displayName>Name</displayName>
+			<length>100</length>
+		</text>
+		<date name="dateOfBirth">
+			<displayName>Date of Birth</displayName>
+		</date>
+	</attributes>
+</document>

@@ -4,23 +4,30 @@
     <homeDocument>Office</homeDocument>
     <documents>
         <document ref="Office"/>
+        <document ref="Staff"/>
     </documents>
     <roles>
         <role name="Viewer">
             <description><![CDATA[Enough privileges to view Org Manager documents.]]></description>
             <privileges>
                 <document name="Office" permission="_R__C"/>
+                <document name="Staff" permission="_R__C"/>
             </privileges>
         </role>
         <role name="Maintainer">
             <description><![CDATA[Enough privileges to create and edit Org Manager documents.]]></description>
             <privileges>
                 <document name="Office" permission="CRUDC"/>
+                <document name="Staff" permission="CRUDC"/>
             </privileges>
         </role>
     </roles>
     <menu>
         <list document="Office" name="Offices">
+            <role name="Maintainer"/>
+            <role name="Viewer"/>
+        </list>
+        <list document="Staff" name="Staff">
             <role name="Maintainer"/>
             <role name="Viewer"/>
         </list>

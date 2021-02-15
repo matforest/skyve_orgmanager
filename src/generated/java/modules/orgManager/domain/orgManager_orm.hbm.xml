@@ -22,7 +22,8 @@
 		<property name="bizUserId" length="36" not-null="true" />
 		<property name="levelUnit" length="200" />
 		<property name="buildingName" length="200" />
-		<property name="streetAddress" length="200" />
+		<property name="streetAddress1" length="200" />
+		<property name="streetAddress2" length="200" />
 		<property name="suburb" length="200" />
 		<property name="postcode" length="20" />
 		<property name="phone" length="14" />
@@ -30,6 +31,24 @@
 		<filter name="orgManagerOfficeCustomerFilter" condition="bizCustomer=:customerParam"/>
 		<filter name="orgManagerOfficeDataGroupIdFilter" condition="bizDataGroupId=:dataGroupIdParam"/>
 		<filter name="orgManagerOfficeUserIdFilter" condition="bizUserId=:userIdParam"/>
+	</class>
+
+	<class name="modules.orgManager.domain.Staff" table="ORG_Staff" entity-name="orgManagerStaff">
+		<id name="bizId" length="36" />
+		<version name="bizVersion" unsaved-value="null" />
+		<property name="bizLock" type="OptimisticLock" length="271" not-null="true" />
+		<property name="bizKey" length="1024" not-null="true" />
+		<property name="bizCustomer" length="50" not-null="true" />
+		<property name="bizFlagComment" length="1024" />
+		<property name="bizDataGroupId" length="36" />
+		<property name="bizUserId" length="36" not-null="true" />
+		<property name="code" length="50" />
+		<property name="name" length="100" />
+		<property name="dateOfBirth" type="DateOnly" />
+		<filter name="orgManagerStaffNoneFilter" condition="1=0"/>
+		<filter name="orgManagerStaffCustomerFilter" condition="bizCustomer=:customerParam"/>
+		<filter name="orgManagerStaffDataGroupIdFilter" condition="bizDataGroupId=:dataGroupIdParam"/>
+		<filter name="orgManagerStaffUserIdFilter" condition="bizUserId=:userIdParam"/>
 	</class>
 
 	<filter-def name="orgManagerOfficeNoneFilter" />
@@ -40,6 +59,16 @@
 		<filter-param name="dataGroupIdParam" type="string"/>
 	</filter-def>
 	<filter-def name="orgManagerOfficeUserIdFilter">
+		<filter-param name="userIdParam" type="string"/>
+	</filter-def>
+	<filter-def name="orgManagerStaffNoneFilter" />
+	<filter-def name="orgManagerStaffCustomerFilter">
+		<filter-param name="customerParam" type="string"/>
+	</filter-def>
+	<filter-def name="orgManagerStaffDataGroupIdFilter">
+		<filter-param name="dataGroupIdParam" type="string"/>
+	</filter-def>
+	<filter-def name="orgManagerStaffUserIdFilter">
 		<filter-param name="userIdParam" type="string"/>
 	</filter-def>
 </hibernate-mapping>

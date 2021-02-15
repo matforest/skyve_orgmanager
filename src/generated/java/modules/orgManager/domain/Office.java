@@ -32,7 +32,9 @@ public class Office extends AbstractPersistentBean {
 	/** @hidden */
 	public static final String buildingNamePropertyName = "buildingName";
 	/** @hidden */
-	public static final String streetAddressPropertyName = "streetAddress";
+	public static final String streetAddress1PropertyName = "streetAddress1";
+	/** @hidden */
+	public static final String streetAddress2PropertyName = "streetAddress2";
 	/** @hidden */
 	public static final String suburbPropertyName = "suburb";
 	/** @hidden */
@@ -49,9 +51,13 @@ public class Office extends AbstractPersistentBean {
 	 **/
 	private String buildingName;
 	/**
-	 * Street Address
+	 * Street Address 1
 	 **/
-	private String streetAddress;
+	private String streetAddress1;
+	/**
+	 * Street Address 2
+	 **/
+	private String streetAddress2;
 	/**
 	 * Suburb
 	 **/
@@ -93,7 +99,7 @@ public class Office extends AbstractPersistentBean {
 	@XmlTransient
 	public String getBizKey() {
 		try {
-			return org.skyve.util.Binder.formatMessage("Office - {streetAddress}", this);
+			return org.skyve.util.Binder.formatMessage("Office - {streetAddress1}", this);
 		}
 		catch (@SuppressWarnings("unused") Exception e) {
 			return "Unknown";
@@ -143,21 +149,39 @@ public class Office extends AbstractPersistentBean {
 	}
 
 	/**
-	 * {@link #streetAddress} accessor.
+	 * {@link #streetAddress1} accessor.
 	 * @return	The value.
 	 **/
-	public String getStreetAddress() {
-		return streetAddress;
+	public String getStreetAddress1() {
+		return streetAddress1;
 	}
 
 	/**
-	 * {@link #streetAddress} mutator.
-	 * @param streetAddress	The new value.
+	 * {@link #streetAddress1} mutator.
+	 * @param streetAddress1	The new value.
 	 **/
 	@XmlElement
-	public void setStreetAddress(String streetAddress) {
-		preset(streetAddressPropertyName, streetAddress);
-		this.streetAddress = streetAddress;
+	public void setStreetAddress1(String streetAddress1) {
+		preset(streetAddress1PropertyName, streetAddress1);
+		this.streetAddress1 = streetAddress1;
+	}
+
+	/**
+	 * {@link #streetAddress2} accessor.
+	 * @return	The value.
+	 **/
+	public String getStreetAddress2() {
+		return streetAddress2;
+	}
+
+	/**
+	 * {@link #streetAddress2} mutator.
+	 * @param streetAddress2	The new value.
+	 **/
+	@XmlElement
+	public void setStreetAddress2(String streetAddress2) {
+		preset(streetAddress2PropertyName, streetAddress2);
+		this.streetAddress2 = streetAddress2;
 	}
 
 	/**

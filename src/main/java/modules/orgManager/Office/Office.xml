@@ -4,7 +4,7 @@
     <singularAlias>Office</singularAlias>
     <pluralAlias>Offices</pluralAlias>
     <iconStyleClass>fa fa-building</iconStyleClass>
-    <bizKey expression="Office - {streetAddress}"/>
+    <bizKey expression="Office - {streetAddress1}"/>
     <attributes>
         <text name="levelUnit">
             <displayName>Level Unit</displayName>
@@ -14,8 +14,12 @@
             <displayName>Building Name</displayName>
             <length>200</length>
         </text>
-        <text required="true" name="streetAddress">
-            <displayName>Street Address</displayName>
+        <text required="true" name="streetAddress1">
+            <displayName>Street Address 1</displayName>
+            <length>200</length>
+        </text>
+        <text required="true" name="streetAddress2">
+            <displayName>Street Address 2</displayName>
             <length>200</length>
         </text>
         <text name="suburb">
