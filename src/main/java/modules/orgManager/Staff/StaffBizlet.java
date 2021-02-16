@@ -1,12 +1,15 @@
 package modules.orgManager.Staff;
 
+import java.util.Calendar;
 import java.util.Date;
 
+import org.apache.commons.lang3.StringUtils;
 import org.skyve.domain.messages.Message;
 import org.skyve.domain.messages.ValidationException;
 import org.skyve.domain.types.DateOnly;
 import org.skyve.metadata.model.document.Bizlet;
 
+import modules.admin.ModulesUtil;
 import modules.orgManager.domain.Staff;
 
 public class StaffBizlet extends Bizlet<Staff> {
@@ -29,4 +32,15 @@ public class StaffBizlet extends Bizlet<Staff> {
 		super.validate(bean, e);
 	}
 
+	@Override
+	public void preSave(Staff bean) throws Exception {
+
+		if (StringUtils.isBlank(bean.getCode())) {
+			String nextNum = ModulesUtil.getNextDocumentNumber("S", Staff.MODULE_NAME, Staff.DOCUMENT_NAME,
+					Staff.codePropertyName, 3);
+			bean.setCode(nextNum);
+		}
+
+		super.preSave(bean);
+	}
 }
