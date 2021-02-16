@@ -45,6 +45,8 @@ public class Staff extends AbstractPersistentBean {
 	/** @hidden */
 	public static final String namePropertyName = "name";
 	/** @hidden */
+	public static final String lastNamePropertyName = "lastName";
+	/** @hidden */
 	public static final String dateOfBirthPropertyName = "dateOfBirth";
 	/** @hidden */
 	public static final String homeOfficePropertyName = "homeOffice";
@@ -138,9 +140,13 @@ public class Staff extends AbstractPersistentBean {
 	 **/
 	private String code;
 	/**
-	 * Name
+	 * First Name
 	 **/
 	private String name;
+	/**
+	 * Last Name
+	 **/
+	private String lastName;
 	/**
 	 * Date of Birth
 	 **/
@@ -237,6 +243,24 @@ public class Staff extends AbstractPersistentBean {
 	public void setName(String name) {
 		preset(namePropertyName, name);
 		this.name = name;
+	}
+
+	/**
+	 * {@link #lastName} accessor.
+	 * @return	The value.
+	 **/
+	public String getLastName() {
+		return lastName;
+	}
+
+	/**
+	 * {@link #lastName} mutator.
+	 * @param lastName	The new value.
+	 **/
+	@XmlElement
+	public void setLastName(String lastName) {
+		preset(lastNamePropertyName, lastName);
+		this.lastName = lastName;
 	}
 
 	/**

@@ -44,6 +44,7 @@
 		<property name="bizUserId" length="36" not-null="true" />
 		<property name="code" length="50" />
 		<property name="name" length="100" />
+		<property name="lastName" length="100" />
 		<property name="dateOfBirth" type="DateOnly" />
 		<many-to-one name="homeOffice" entity-name="orgManagerOffice" column="homeOffice_id" cascade="persist,save-update,refresh,merge" foreign-key="FK_ORG_Staff_homeOffice"/>
 		<property name="location" />

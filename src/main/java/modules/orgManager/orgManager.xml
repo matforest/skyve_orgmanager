@@ -43,6 +43,7 @@
 					binding="image" pixelWidth="64" />
 				<column binding="code" sortOrder="ascending" />
 				<column binding="name" />
+				<column binding="lastName" />
 				<column binding="dateOfBirth" />
 				<column binding="status" />
 			</columns>

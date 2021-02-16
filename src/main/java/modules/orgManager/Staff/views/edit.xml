@@ -22,6 +22,11 @@
 				</row>
 				<row>
 					<item>
+						<default binding="lastName" />
+					</item>
+				</row>
+				<row>
+					<item>
 						<contentImage binding="image" />
 					</item>
 				</row>
