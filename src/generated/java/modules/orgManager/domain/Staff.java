@@ -60,8 +60,8 @@ public class Staff extends AbstractPersistentBean {
 	 **/
 	@XmlEnum
 	public static enum Status implements Enumeration {
-		in("in", "In"),
-		outToLunch("otl", "Out to Lunch"),
+		in("in", "In the office"),
+		otl("otl", "Out to Lunch"),
 		out("out", "Out");
 
 		private String code;
@@ -160,7 +160,7 @@ public class Staff extends AbstractPersistentBean {
 	/**
 	 * Status
 	 **/
-	private Status status;
+	private Status status = Status.in;
 
 	@Override
 	@XmlTransient

@@ -32,10 +32,11 @@
 		</image>
 		<enum name="status">
 			<displayName>Status</displayName>
+			<defaultValue>in</defaultValue>
 			<values>
-				<value code="in" description="In" />
-				<value code="otl" description="Out to Lunch" />
-				<value code="out" description="Out" />
+				<value code="in" name="in" description="In the office" />
+				<value code="otl" name="otl" description="Out to Lunch" />
+				<value code="out" name="out" description="Out" />
 			</values>
 		</enum>
 	</attributes>
