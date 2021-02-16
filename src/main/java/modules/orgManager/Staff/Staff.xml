@@ -24,5 +24,19 @@
 			<displayName>Home Office</displayName>
 			<documentName>Office</documentName>
 		</association>
+		<geometry name="location">
+			<displayName>Location</displayName>
+		</geometry>
+		<image name="image">
+			<displayName>Image</displayName>
+		</image>
+		<enum name="status">
+			<displayName>Status</displayName>
+			<values>
+				<value code="in" description="In" />
+				<value code="otl" description="Out to Lunch" />
+				<value code="out" description="Out" />
+			</values>
+		</enum>
 	</attributes>
 </document>
