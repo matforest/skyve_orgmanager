@@ -5,7 +5,7 @@
 	<persistent name="ORG_Staff" />
 	<singularAlias>Staff</singularAlias>
 	<pluralAlias>Staff</pluralAlias>
-	<iconStyleClass>fa fa-building</iconStyleClass>
+	<iconStyleClass>fa fa-address-card-o</iconStyleClass>
 	<bizKey expression="{code}" />
 	<attributes>
 		<text name="code">
