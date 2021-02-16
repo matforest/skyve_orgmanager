@@ -19,5 +19,10 @@
 		<date name="dateOfBirth">
 			<displayName>Date of Birth</displayName>
 		</date>
+		<association name="homeOffice" type="aggregation"
+			required="false">
+			<displayName>Home Office</displayName>
+			<documentName>Office</documentName>
+		</association>
 	</attributes>
 </document>

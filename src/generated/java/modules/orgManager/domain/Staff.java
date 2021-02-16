@@ -15,6 +15,7 @@ import org.skyve.impl.domain.types.jaxb.DateOnlyMapper;
 /**
  * Staff
  * 
+ * @navhas n homeOffice 0..1 Office
  * @stereotype "persistent"
  */
 @XmlType
@@ -37,6 +38,8 @@ public class Staff extends AbstractPersistentBean {
 	public static final String namePropertyName = "name";
 	/** @hidden */
 	public static final String dateOfBirthPropertyName = "dateOfBirth";
+	/** @hidden */
+	public static final String homeOfficePropertyName = "homeOffice";
 
 	/**
 	 * Code
@@ -50,6 +53,10 @@ public class Staff extends AbstractPersistentBean {
 	 * Date of Birth
 	 **/
 	private DateOnly dateOfBirth;
+	/**
+	 * Home Office
+	 **/
+	private Office homeOffice = null;
 
 	@Override
 	@XmlTransient
@@ -146,5 +153,25 @@ public class Staff extends AbstractPersistentBean {
 	public void setDateOfBirth(DateOnly dateOfBirth) {
 		preset(dateOfBirthPropertyName, dateOfBirth);
 		this.dateOfBirth = dateOfBirth;
+	}
+
+	/**
+	 * {@link #homeOffice} accessor.
+	 * @return	The value.
+	 **/
+	public Office getHomeOffice() {
+		return homeOffice;
+	}
+
+	/**
+	 * {@link #homeOffice} mutator.
+	 * @param homeOffice	The new value.
+	 **/
+	@XmlElement
+	public void setHomeOffice(Office homeOffice) {
+		if (this.homeOffice != homeOffice) {
+			preset(homeOfficePropertyName, homeOffice);
+			this.homeOffice = homeOffice;
+		}
 	}
 }

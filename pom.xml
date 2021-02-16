@@ -9,7 +9,7 @@
 
 	<packaging>war</packaging>
 	<name>orgManager</name>
-	<description>orgManager</description>
+	<description>Organisation Manager</description>
 
 	<properties>
 		<finalName>${project.artifactId}</finalName>

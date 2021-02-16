@@ -14,11 +14,11 @@
             <displayName>Building Name</displayName>
             <length>200</length>
         </text>
-        <text required="true" name="streetAddress1">
+        <text name="streetAddress1">
             <displayName>Street Address 1</displayName>
             <length>200</length>
         </text>
-        <text required="true" name="streetAddress2">
+        <text name="streetAddress2">
             <displayName>Street Address 2</displayName>
             <length>200</length>
         </text>

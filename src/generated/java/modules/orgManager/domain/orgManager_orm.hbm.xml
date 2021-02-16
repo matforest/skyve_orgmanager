@@ -45,6 +45,7 @@
 		<property name="code" length="50" />
 		<property name="name" length="100" />
 		<property name="dateOfBirth" type="DateOnly" />
+		<many-to-one name="homeOffice" entity-name="orgManagerOffice" column="homeOffice_id" cascade="persist,save-update,refresh,merge" foreign-key="FK_ORG_Staff_homeOffice"/>
 		<filter name="orgManagerStaffNoneFilter" condition="1=0"/>
 		<filter name="orgManagerStaffCustomerFilter" condition="bizCustomer=:customerParam"/>
 		<filter name="orgManagerStaffDataGroupIdFilter" condition="bizDataGroupId=:dataGroupIdParam"/>
