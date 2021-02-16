@@ -12,7 +12,7 @@
 				<column />
 				<row>
 					<item>
-						<default binding="code" />
+						<textField binding="code" disabled="true" />
 					</item>
 				</row>
 				<row>
@@ -33,6 +33,11 @@
 				<row>
 					<item>
 						<default binding="dateOfBirth" />
+					</item>
+				</row>
+				<row>
+					<item>
+						<textField binding="ageInYears" disabled="true" />
 					</item>
 				</row>
 				<row>

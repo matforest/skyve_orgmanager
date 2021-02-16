@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import modules.orgManager.Staff.StaffExtension;
 import org.locationtech.jts.geom.Geometry;
 import org.skyve.CORE;
 import org.skyve.domain.messages.DomainException;
@@ -28,7 +29,7 @@ import org.skyve.metadata.model.document.Bizlet.DomainValue;
  */
 @XmlType
 @XmlRootElement
-public class Staff extends AbstractPersistentBean {
+public abstract class Staff extends AbstractPersistentBean {
 	/**
 	 * For Serialization
 	 * @hidden
@@ -48,6 +49,8 @@ public class Staff extends AbstractPersistentBean {
 	public static final String lastNamePropertyName = "lastName";
 	/** @hidden */
 	public static final String dateOfBirthPropertyName = "dateOfBirth";
+	/** @hidden */
+	public static final String ageInYearsPropertyName = "ageInYears";
 	/** @hidden */
 	public static final String homeOfficePropertyName = "homeOffice";
 	/** @hidden */
@@ -152,6 +155,10 @@ public class Staff extends AbstractPersistentBean {
 	 **/
 	private DateOnly dateOfBirth;
 	/**
+	 * Age In Years
+	 **/
+	private Integer ageInYears;
+	/**
 	 * Home Office
 	 **/
 	private Office homeOffice = null;
@@ -180,7 +187,7 @@ public class Staff extends AbstractPersistentBean {
 		return Staff.DOCUMENT_NAME;
 	}
 
-	public static Staff newInstance() {
+	public static StaffExtension newInstance() {
 		try {
 			return CORE.getUser().getCustomer().getModule(MODULE_NAME).getDocument(CORE.getUser().getCustomer(), DOCUMENT_NAME).newInstance(CORE.getUser());
 		}
@@ -281,6 +288,24 @@ public class Staff extends AbstractPersistentBean {
 	public void setDateOfBirth(DateOnly dateOfBirth) {
 		preset(dateOfBirthPropertyName, dateOfBirth);
 		this.dateOfBirth = dateOfBirth;
+	}
+
+	/**
+	 * {@link #ageInYears} accessor.
+	 * @return	The value.
+	 **/
+	public Integer getAgeInYears() {
+		return ageInYears;
+	}
+
+	/**
+	 * {@link #ageInYears} mutator.
+	 * @param ageInYears	The new value.
+	 **/
+	@XmlElement
+	public void setAgeInYears(Integer ageInYears) {
+		preset(ageInYearsPropertyName, ageInYears);
+		this.ageInYears = ageInYears;
 	}
 
 	/**

@@ -23,6 +23,9 @@
 		<date name="dateOfBirth">
 			<displayName>Date of Birth</displayName>
 		</date>
+		<integer name="ageInYears">
+			<displayName>Age In Years</displayName>
+		</integer>
 		<association name="homeOffice" type="aggregation"
 			required="false">
 			<displayName>Home Office</displayName>
