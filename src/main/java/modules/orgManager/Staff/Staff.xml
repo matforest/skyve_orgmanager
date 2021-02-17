@@ -50,6 +50,9 @@
 			<displayName>Staff Status History</displayName>
 			<documentName>StaffStatusHistory</documentName>
 			<minCardinality>0</minCardinality>
+			<ordering>
+				<order sort="ascending" by="statusTime" />
+			</ordering>
 		</collection>
 	</attributes>
 </document>

@@ -1,15 +1,19 @@
 package modules.orgManager.Staff;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.skyve.CORE;
 import org.skyve.domain.messages.Message;
 import org.skyve.domain.messages.ValidationException;
 import org.skyve.domain.types.DateOnly;
 import org.skyve.domain.types.DateTime;
+import org.skyve.metadata.customer.Customer;
 import org.skyve.metadata.model.document.Bizlet;
+import org.skyve.metadata.model.document.Document;
+import org.skyve.metadata.module.Module;
+import org.skyve.util.Binder;
 import org.skyve.web.WebContext;
 
 import modules.admin.ModulesUtil;
@@ -72,8 +76,10 @@ public class StaffBizlet extends Bizlet<StaffExtension> {
 			List<StaffStatusHistoryExtension> histories = bean.getStaffStatusHistories();
 			histories.add(historyEntry);
 
-			Collections.sort(histories);
-			// histories.stream().sorted().collect(Collectors.toList());
+			Customer customer = CORE.getPersistence().getUser().getCustomer();
+			Module module = customer.getModule(Staff.MODULE_NAME);
+			Document document = module.getDocument(customer, Staff.DOCUMENT_NAME);
+			Binder.sortCollectionByMetaData(bean, customer, module, document, Staff.staffStatusHistoriesPropertyName);
 		}
 	}
 }
