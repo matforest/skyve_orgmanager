@@ -31,7 +31,6 @@ public class StaffExtension extends Staff {
 
 	public void home() {
 
-		Util.LOGGER.warning("Attempting to re-homing user " + this);
 		Office office = this.getHomeOffice();
 
 		if (office != null && office.getLocation() != null) {

@@ -5,6 +5,10 @@
 	xsi:schemaLocation="http://www.skyve.org/xml/module ../../schemas/module.xsd">
 	<homeRef>list</homeRef>
 	<homeDocument>Office</homeDocument>
+	<jobs>
+		<job name="jReHomeStaff" displayName="Re-Home Staff"
+			className="modules.orgManager.Staff.ReHomeJob" />
+	</jobs>
 	<documents>
 		<document ref="Office" />
 		<document ref="Staff" defaultQueryName="qStaff" />
