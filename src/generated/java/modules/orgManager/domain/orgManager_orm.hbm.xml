@@ -69,7 +69,7 @@
 		<filter name="orgManagerStaffUserIdFilter" condition="bizUserId=:userIdParam"/>
 	</class>
 
-	<class name="modules.orgManager.domain.StaffStatusHistory" table="ORG_StaffStausHistory" entity-name="orgManagerStaffStatusHistory">
+	<class name="modules.orgManager.StaffStatusHistory.StaffStatusHistoryExtension" table="ORG_StaffStausHistory" entity-name="orgManagerStaffStatusHistory">
 		<id name="bizId" length="36" />
 		<version name="bizVersion" unsaved-value="null" />
 		<property name="bizLock" type="OptimisticLock" length="271" not-null="true" />

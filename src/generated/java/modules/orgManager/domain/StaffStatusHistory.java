@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import modules.orgManager.Staff.StaffExtension;
+import modules.orgManager.StaffStatusHistory.StaffStatusHistoryExtension;
 import modules.orgManager.domain.Staff.Status;
 import org.skyve.CORE;
 import org.skyve.domain.Bean;
@@ -24,7 +25,7 @@ import org.skyve.impl.domain.types.jaxb.DateTimeMapper;
  */
 @XmlType
 @XmlRootElement
-public class StaffStatusHistory extends AbstractPersistentBean implements ChildBean<StaffExtension> {
+public abstract class StaffStatusHistory extends AbstractPersistentBean implements ChildBean<StaffExtension> {
 	/**
 	 * For Serialization
 	 * @hidden
@@ -66,7 +67,7 @@ public class StaffStatusHistory extends AbstractPersistentBean implements ChildB
 		return StaffStatusHistory.DOCUMENT_NAME;
 	}
 
-	public static StaffStatusHistory newInstance() {
+	public static StaffStatusHistoryExtension newInstance() {
 		try {
 			return CORE.getUser().getCustomer().getModule(MODULE_NAME).getDocument(CORE.getUser().getCustomer(), DOCUMENT_NAME).newInstance(CORE.getUser());
 		}

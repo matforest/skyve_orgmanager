@@ -1,24 +1,21 @@
 package modules.orgManager.Staff;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.ss.formula.functions.T;
 import org.skyve.domain.messages.Message;
 import org.skyve.domain.messages.ValidationException;
 import org.skyve.domain.types.DateOnly;
 import org.skyve.domain.types.DateTime;
 import org.skyve.metadata.model.document.Bizlet;
+import org.skyve.web.WebContext;
 
 import modules.admin.ModulesUtil;
+import modules.orgManager.StaffStatusHistory.StaffStatusHistoryExtension;
 import modules.orgManager.domain.Staff;
 import modules.orgManager.domain.Staff.Status;
-import modules.orgManager.domain.StaffStatusHistory;
 
 public class StaffBizlet extends Bizlet<StaffExtension> {
 
@@ -49,22 +46,34 @@ public class StaffBizlet extends Bizlet<StaffExtension> {
 			bean.setCode(nextNum);
 		}
 
+		super.preSave(bean);
+	}
+
+	@Override
+	public void preRerender(String source, StaffExtension bean, WebContext webContext) throws Exception {
+
+		if (Staff.statusPropertyName.equals(source)) {
+			addStatusHistoryEntry(bean);
+		}
+
+		super.preRerender(source, bean, webContext);
+	}
+
+	private void addStatusHistoryEntry(StaffExtension bean) {
 		if (bean.originalValues().containsKey(Staff.statusPropertyName)) {
 
 			Status currStatus = bean.getStatus();
-			StaffStatusHistory historyEntry = StaffStatusHistory.newInstance();
+			StaffStatusHistoryExtension historyEntry = StaffStatusHistoryExtension.newInstance();
 
 			historyEntry.setStatus(currStatus);
 			historyEntry.setStatusTime(new DateTime());
 			historyEntry.setParent(bean);
 
-			List<StaffStatusHistory> histories = bean.getStaffStatusHistories();
+			List<StaffStatusHistoryExtension> histories = bean.getStaffStatusHistories();
 			histories.add(historyEntry);
 
 			Collections.sort(histories);
 			// histories.stream().sorted().collect(Collectors.toList());
 		}
-
-		super.preSave(bean);
 	}
 }

@@ -32,7 +32,11 @@
 				</row>
 				<row>
 					<item>
-						<default binding="dateOfBirth" />
+						<textField binding="dateOfBirth">
+							<onChangedHandlers>
+								<rerender />
+							</onChangedHandlers>
+						</textField>
 					</item>
 				</row>
 				<row>
@@ -42,7 +46,11 @@
 				</row>
 				<row>
 					<item>
-						<default binding="status" />
+						<combo binding="status">
+							<onChangedHandlers>
+								<rerender />
+							</onChangedHandlers>
+						</combo>
 					</item>
 				</row>
 				<row>

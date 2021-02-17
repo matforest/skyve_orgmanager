@@ -10,6 +10,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import modules.orgManager.Staff.StaffExtension;
+import modules.orgManager.StaffStatusHistory.StaffStatusHistoryExtension;
 import org.locationtech.jts.geom.Geometry;
 import org.skyve.CORE;
 import org.skyve.domain.messages.DomainException;
@@ -181,7 +182,7 @@ public abstract class Staff extends AbstractPersistentBean {
 	/**
 	 * Staff Status History
 	 **/
-	private List<StaffStatusHistory> staffStatusHistories = new ChangeTrackingArrayList<>("staffStatusHistories", this);
+	private List<StaffStatusHistoryExtension> staffStatusHistories = new ChangeTrackingArrayList<>("staffStatusHistories", this);
 
 	@Override
 	@XmlTransient
@@ -407,7 +408,7 @@ public abstract class Staff extends AbstractPersistentBean {
 	 * @return	The value.
 	 **/
 	@XmlElement
-	public List<StaffStatusHistory> getStaffStatusHistories() {
+	public List<StaffStatusHistoryExtension> getStaffStatusHistories() {
 		return staffStatusHistories;
 	}
 
@@ -416,7 +417,7 @@ public abstract class Staff extends AbstractPersistentBean {
 	 * @param bizId	The bizId of the element in the list.
 	 * @return	The value of the element in the list.
 	 **/
-	public StaffStatusHistory getStaffStatusHistoriesElementById(String bizId) {
+	public StaffStatusHistoryExtension getStaffStatusHistoriesElementById(String bizId) {
 		return getElementById(staffStatusHistories, bizId);
 	}
 
@@ -425,7 +426,7 @@ public abstract class Staff extends AbstractPersistentBean {
 	 * @param bizId	The bizId of the element in the list.
 	 * @param element	The new value of the element in the list.
 	 **/
-	public void setStaffStatusHistoriesElementById(String bizId, StaffStatusHistory element) {
+	public void setStaffStatusHistoriesElementById(String bizId, StaffStatusHistoryExtension element) {
 		setElementById(staffStatusHistories, element);
 	}
 
@@ -433,7 +434,7 @@ public abstract class Staff extends AbstractPersistentBean {
 	 * {@link #staffStatusHistories} add.
 	 * @param element	The element to add.
 	 **/
-	public boolean addStaffStatusHistoriesElement(StaffStatusHistory element) {
+	public boolean addStaffStatusHistoriesElement(StaffStatusHistoryExtension element) {
 		boolean result = staffStatusHistories.add(element);
 		element.setParent((StaffExtension) this);
 		return result;
@@ -444,7 +445,7 @@ public abstract class Staff extends AbstractPersistentBean {
 	 * @param index	The index in the list to add the element to.
 	 * @param element	The element to add.
 	 **/
-	public void addStaffStatusHistoriesElement(int index, StaffStatusHistory element) {
+	public void addStaffStatusHistoriesElement(int index, StaffStatusHistoryExtension element) {
 		staffStatusHistories.add(index, element);
 		element.setParent((StaffExtension) this);
 	}
@@ -453,7 +454,7 @@ public abstract class Staff extends AbstractPersistentBean {
 	 * {@link #staffStatusHistories} remove.
 	 * @param element	The element to remove.
 	 **/
-	public boolean removeStaffStatusHistoriesElement(StaffStatusHistory element) {
+	public boolean removeStaffStatusHistoriesElement(StaffStatusHistoryExtension element) {
 		boolean result = staffStatusHistories.remove(element);
 		element.setParent(null);
 		return result;
@@ -463,8 +464,8 @@ public abstract class Staff extends AbstractPersistentBean {
 	 * {@link #staffStatusHistories} remove.
 	 * @param index	The index in the list to remove the element from.
 	 **/
-	public StaffStatusHistory removeStaffStatusHistoriesElement(int index) {
-		StaffStatusHistory result = staffStatusHistories.remove(index);
+	public StaffStatusHistoryExtension removeStaffStatusHistoriesElement(int index) {
+		StaffStatusHistoryExtension result = staffStatusHistories.remove(index);
 		result.setParent(null);
 		return result;
 	}
