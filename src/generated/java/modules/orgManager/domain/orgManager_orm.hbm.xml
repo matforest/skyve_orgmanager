@@ -27,6 +27,7 @@
 		<property name="suburb" length="200" />
 		<property name="postcode" length="20" />
 		<property name="phone" length="14" />
+		<property name="location" />
 		<bag name="employees" inverse="true">
 			<key column="homeOffice_id" />
 			<one-to-many entity-name="orgManagerStaff" />

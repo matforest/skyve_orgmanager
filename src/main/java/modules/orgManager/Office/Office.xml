@@ -6,7 +6,7 @@
 	<singularAlias>Office</singularAlias>
 	<pluralAlias>Offices</pluralAlias>
 	<iconStyleClass>fa fa-building</iconStyleClass>
-	<bizKey expression="Office - {streetAddress1}" />
+	<bizKey expression="Office - {suburb}" />
 	<attributes>
 		<text name="levelUnit">
 			<displayName>Level Unit</displayName>
@@ -38,6 +38,9 @@
 			<length>14</length>
 			<format mask="##############" />
 		</text>
+		<geometry name="location">
+			<displayName>Location</displayName>
+		</geometry>
 		<inverseMany name="employees">
 			<displayName>Staff</displayName>
 			<documentName>Staff</documentName>

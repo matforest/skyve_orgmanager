@@ -5,6 +5,7 @@ import java.util.Date;
 import org.skyve.domain.types.DateOnly;
 import org.skyve.impl.util.TimeUtil;
 
+import modules.orgManager.domain.Office;
 import modules.orgManager.domain.Staff;
 
 public class StaffExtension extends Staff {
@@ -25,5 +26,14 @@ public class StaffExtension extends Staff {
 		}
 
 		return age;
+	}
+
+	public void home() {
+
+		Office office = this.getHomeOffice();
+
+		if (office != null && office.getLocation() != null) {
+			this.setLocation(office.getLocation().getCentroid());
+		}
 	}
 }

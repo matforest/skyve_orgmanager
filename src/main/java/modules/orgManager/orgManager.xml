@@ -1,51 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module xmlns="http://www.skyve.org/xml/module" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="Org Manager" prototype="true" name="orgManager" xsi:schemaLocation="http://www.skyve.org/xml/module ../../schemas/module.xsd">
-    <homeRef>list</homeRef>
-    <homeDocument>Office</homeDocument>
-    <documents>
-        <document ref="Office"/>
-        <document ref="Staff" defaultQueryName="qStaff"/>
-        <document ref="StaffStatusHistory"/>
-    </documents>
-    <roles>
-        <role name="Viewer">
-            <description><![CDATA[Enough privileges to view Org Manager documents.]]></description>
-            <privileges>
-                <document name="Office" permission="_R__C"/>
-                <document name="Staff" permission="_R__C"/>
-                <document name="StaffStatusHistory" permission="_R__C"/>
-            </privileges>
-        </role>
-        <role name="Maintainer">
-            <description><![CDATA[Enough privileges to create and edit Org Manager documents.]]></description>
-            <privileges>
-                <document name="Office" permission="CRUDC"/>
-                <document name="Staff" permission="CRUDC"/>
-                <document name="StaffStatusHistory" permission="CRUDC"/>
-            </privileges>
-        </role>
-    </roles>
-    <menu>
-        <list document="Office" name="Offices">
-            <role name="Maintainer"/>
-            <role name="Viewer"/>
-        </list>
-        <list document="Staff" name="Staff">
-            <role name="Maintainer"/>
-            <role name="Viewer"/>
-        </list>
-    </menu>
-    <queries>
-        <query documentName="Staff" name="qStaff">
-            <description><![CDATA[All Staff]]></description>
-            <columns>
-                <content display="thumbnail" pixelHeight="64" binding="image" pixelWidth="64"/>
-                <column binding="code" sortOrder="ascending"/>
-                <column binding="name"/>
-                <column binding="lastName"/>
-                <column binding="dateOfBirth"/>
-                <column binding="status"/>
-            </columns>
-        </query>
-    </queries>
+<module xmlns="http://www.skyve.org/xml/module"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	title="Org Manager" prototype="true" name="orgManager"
+	xsi:schemaLocation="http://www.skyve.org/xml/module ../../schemas/module.xsd">
+	<homeRef>list</homeRef>
+	<homeDocument>Office</homeDocument>
+	<documents>
+		<document ref="Office" />
+		<document ref="Staff" defaultQueryName="qStaff" />
+		<document ref="StaffStatusHistory" />
+	</documents>
+	<roles>
+		<role name="Viewer">
+			<description><![CDATA[Enough privileges to view Org Manager documents.]]></description>
+			<privileges>
+				<document name="Office" permission="_R__C" />
+				<document name="Staff" permission="_R__C" />
+				<document name="StaffStatusHistory" permission="_R__C" />
+			</privileges>
+		</role>
+		<role name="Maintainer">
+			<description><![CDATA[Enough privileges to create and edit Org Manager documents.]]></description>
+			<privileges>
+				<document name="Office" permission="CRUDC" />
+				<document name="Staff" permission="CRUDC">
+					<action name="Home" />
+				</document>
+				<document name="StaffStatusHistory" permission="CRUDC" />
+			</privileges>
+		</role>
+	</roles>
+	<menu>
+		<list document="Office" name="Offices">
+			<role name="Maintainer" />
+			<role name="Viewer" />
+		</list>
+		<list document="Staff" name="Staff">
+			<role name="Maintainer" />
+			<role name="Viewer" />
+		</list>
+	</menu>
+	<queries>
+		<query documentName="Staff" name="qStaff">
+			<description><![CDATA[All Staff]]></description>
+			<columns>
+				<content display="thumbnail" pixelHeight="64"
+					binding="image" pixelWidth="64" />
+				<column binding="code" sortOrder="ascending" />
+				<column binding="name" />
+				<column binding="lastName" />
+				<column binding="dateOfBirth" />
+				<column binding="status" />
+			</columns>
+		</query>
+	</queries>
 </module>

@@ -6,10 +6,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import modules.orgManager.Staff.StaffExtension;
+import org.locationtech.jts.geom.Geometry;
 import org.skyve.CORE;
 import org.skyve.domain.messages.DomainException;
 import org.skyve.impl.domain.AbstractPersistentBean;
+import org.skyve.impl.domain.types.jaxb.GeometryMapper;
 
 /**
  * Office
@@ -45,6 +48,8 @@ public class Office extends AbstractPersistentBean {
 	/** @hidden */
 	public static final String phonePropertyName = "phone";
 	/** @hidden */
+	public static final String locationPropertyName = "location";
+	/** @hidden */
 	public static final String employeesPropertyName = "employees";
 
 	/**
@@ -75,6 +80,10 @@ public class Office extends AbstractPersistentBean {
 	 * Phone
 	 **/
 	private String phone;
+	/**
+	 * Location
+	 **/
+	private Geometry location;
 	/**
 	 * Staff
 	 **/
@@ -108,7 +117,7 @@ public class Office extends AbstractPersistentBean {
 	@XmlTransient
 	public String getBizKey() {
 		try {
-			return org.skyve.util.Binder.formatMessage("Office - {streetAddress1}", this);
+			return org.skyve.util.Binder.formatMessage("Office - {suburb}", this);
 		}
 		catch (@SuppressWarnings("unused") Exception e) {
 			return "Unknown";
@@ -245,6 +254,25 @@ public class Office extends AbstractPersistentBean {
 	public void setPhone(String phone) {
 		preset(phonePropertyName, phone);
 		this.phone = phone;
+	}
+
+	/**
+	 * {@link #location} accessor.
+	 * @return	The value.
+	 **/
+	public Geometry getLocation() {
+		return location;
+	}
+
+	/**
+	 * {@link #location} mutator.
+	 * @param location	The new value.
+	 **/
+	@XmlJavaTypeAdapter(GeometryMapper.class)
+	@XmlElement
+	public void setLocation(Geometry location) {
+		preset(locationPropertyName, location);
+		this.location = location;
 	}
 
 	/**

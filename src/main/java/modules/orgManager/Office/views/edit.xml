@@ -41,6 +41,14 @@
 				<default binding="phone" />
 			</item>
 		</row>
+		<row>
+
+			<item showLabel="true">
+				<geometryMap binding="location">
+					<onChangedHandlers />
+				</geometryMap>
+			</item>
+		</row>
 	</form>
 	<listGrid continueConversation="true" query="qStaff">
 		<filterParameter operator="equal"
@@ -53,6 +61,8 @@
 	</dataGrid>
 	<actions>
 		<defaults />
+
+
 	</actions>
 	<newParameters />
 </view>
