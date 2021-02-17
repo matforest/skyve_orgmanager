@@ -50,6 +50,8 @@ public class Office extends AbstractPersistentBean {
 	/** @hidden */
 	public static final String locationPropertyName = "location";
 	/** @hidden */
+	public static final String descriptionPropertyName = "description";
+	/** @hidden */
 	public static final String employeesPropertyName = "employees";
 
 	/**
@@ -84,6 +86,10 @@ public class Office extends AbstractPersistentBean {
 	 * Location
 	 **/
 	private Geometry location;
+	/**
+	 * Description
+	 **/
+	private String description;
 	/**
 	 * Staff
 	 **/
@@ -273,6 +279,24 @@ public class Office extends AbstractPersistentBean {
 	public void setLocation(Geometry location) {
 		preset(locationPropertyName, location);
 		this.location = location;
+	}
+
+	/**
+	 * {@link #description} accessor.
+	 * @return	The value.
+	 **/
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * {@link #description} mutator.
+	 * @param description	The new value.
+	 **/
+	@XmlElement
+	public void setDescription(String description) {
+		preset(descriptionPropertyName, description);
+		this.description = description;
 	}
 
 	/**

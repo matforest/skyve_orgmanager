@@ -28,6 +28,7 @@
 		<property name="postcode" length="20" />
 		<property name="phone" length="14" />
 		<property name="location" />
+		<property name="description" type="text" />
 		<bag name="employees" inverse="true">
 			<key column="homeOffice_id" />
 			<one-to-many entity-name="orgManagerStaff" />
@@ -55,6 +56,7 @@
 		<many-to-one name="homeOffice" entity-name="orgManagerOffice" column="homeOffice_id" cascade="persist,save-update,refresh,merge" foreign-key="FK_ORG_Staff_homeOffice"/>
 		<property name="location" />
 		<property name="image" length="36" />
+		<property name="resume" length="36" />
 		<property name="status" length="3">
 			<type name="Enum">
 				<param name="enumClass">modules.orgManager.domain.Staff$Status</param>

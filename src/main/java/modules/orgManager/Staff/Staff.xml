@@ -37,6 +37,9 @@
 		<image name="image">
 			<displayName>Image</displayName>
 		</image>
+		<content name="resume">
+			<displayName>Resumé</displayName>
+		</content>
 		<enum name="status">
 			<displayName>Status</displayName>
 			<defaultValue>in</defaultValue>

@@ -63,10 +63,16 @@
 						<default binding="homeOffice" />
 					</item>
 				</row>
+				<row>
+					<item>
+						<contentLink binding="resume" />
+					</item>
+				</row>
 			</form>
 		</vbox>
 		<vbox borderTitle="Location" border="true">
-			<form responsiveWidth="12" border="false" widgetId="locationForm">
+			<form responsiveWidth="12" border="false"
+				widgetId="locationForm">
 				<column />
 				<column />
 				<row>

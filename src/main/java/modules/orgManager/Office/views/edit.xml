@@ -42,11 +42,15 @@
 			</item>
 		</row>
 		<row>
-
 			<item showLabel="true">
 				<geometryMap binding="location">
 					<onChangedHandlers />
 				</geometryMap>
+			</item>
+		</row>
+		<row>
+			<item>
+				<default binding="description" />
 			</item>
 		</row>
 	</form>

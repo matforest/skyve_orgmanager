@@ -18,6 +18,7 @@
 		</text>
 		<text name="streetAddress1">
 			<displayName>Street Address 1</displayName>
+			<index>textual</index>
 			<length>200</length>
 		</text>
 		<text name="streetAddress2">
@@ -41,6 +42,9 @@
 		<geometry name="location">
 			<displayName>Location</displayName>
 		</geometry>
+		<memo name="description">
+			<displayName>Description</displayName>
+		</memo>
 		<inverseMany name="employees">
 			<displayName>Staff</displayName>
 			<documentName>Staff</documentName>
