@@ -43,11 +43,14 @@
 		</row>
 	</form>
 	<listGrid continueConversation="true" query="qStaff">
-
 		<filterParameter operator="equal"
 			filterBinding="homeOffice" valueBinding="bizId" />
-
 	</listGrid>
+	<dataGrid binding="employees">
+		<boundColumn binding="image" />
+		<boundColumn binding="name" />
+		<boundColumn binding="lastName" />
+	</dataGrid>
 	<actions>
 		<defaults />
 	</actions>

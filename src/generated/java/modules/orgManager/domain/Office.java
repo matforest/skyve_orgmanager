@@ -1,9 +1,12 @@
 package modules.orgManager.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
+import modules.orgManager.Staff.StaffExtension;
 import org.skyve.CORE;
 import org.skyve.domain.messages.DomainException;
 import org.skyve.impl.domain.AbstractPersistentBean;
@@ -41,6 +44,8 @@ public class Office extends AbstractPersistentBean {
 	public static final String postcodePropertyName = "postcode";
 	/** @hidden */
 	public static final String phonePropertyName = "phone";
+	/** @hidden */
+	public static final String employeesPropertyName = "employees";
 
 	/**
 	 * Level Unit
@@ -70,6 +75,10 @@ public class Office extends AbstractPersistentBean {
 	 * Phone
 	 **/
 	private String phone;
+	/**
+	 * Staff
+	 **/
+	private List<StaffExtension> employees = new ArrayList<>();
 
 	@Override
 	@XmlTransient
@@ -236,5 +245,77 @@ public class Office extends AbstractPersistentBean {
 	public void setPhone(String phone) {
 		preset(phonePropertyName, phone);
 		this.phone = phone;
+	}
+
+	/**
+	 * {@link #employees} accessor.
+	 * @return	The value.
+	 **/
+	@XmlElement
+	public List<StaffExtension> getEmployees() {
+		return employees;
+	}
+
+	/**
+	 * {@link #employees} accessor.
+	 * @param bizId	The bizId of the element in the list.
+	 * @return	The value of the element in the list.
+	 **/
+	public StaffExtension getEmployeesElementById(String bizId) {
+		return getElementById(employees, bizId);
+	}
+
+	/**
+	 * {@link #employees} mutator.
+	 * @param bizId	The bizId of the element in the list.
+	 * @param element	The new value of the element in the list.
+	 **/
+	public void setEmployeesElementById(String bizId, StaffExtension element) {
+		setElementById(employees, element);
+	}
+
+	/**
+	 * {@link #employees} add.
+	 * @param element	The element to add.
+	 **/
+	public boolean addEmployeesElement(StaffExtension element) {
+		boolean result = false;
+		if (getElementById(employees, element.getBizId()) == null) {
+			result = employees.add(element);
+		}
+		element.setHomeOffice(this);
+		return result;
+	}
+
+	/**
+	 * {@link #employees} add.
+	 * @param index	The index in the list to add the element to.
+	 * @param element	The element to add.
+	 **/
+	public void addEmployeesElement(int index, StaffExtension element) {
+		employees.add(index, element);
+		element.setHomeOffice(this);
+	}
+
+	/**
+	 * {@link #employees} remove.
+	 * @param element	The element to remove.
+	 **/
+	public boolean removeEmployeesElement(StaffExtension element) {
+		boolean result = employees.remove(element);
+		if (result) {
+			element.nullHomeOffice();
+		}
+		return result;
+	}
+
+	/**
+	 * {@link #employees} remove.
+	 * @param index	The index in the list to remove the element from.
+	 **/
+	public StaffExtension removeEmployeesElement(int index) {
+		StaffExtension result = employees.remove(index);
+		result.nullHomeOffice();
+		return result;
 	}
 }

@@ -46,5 +46,10 @@
 				<value code="out" name="out" description="Out" />
 			</values>
 		</enum>
+		<collection type="child" name="staffStatusHistories">
+			<displayName>Staff Status History</displayName>
+			<documentName>StaffStatusHistory</documentName>
+			<minCardinality>0</minCardinality>
+		</collection>
 	</attributes>
 </document>

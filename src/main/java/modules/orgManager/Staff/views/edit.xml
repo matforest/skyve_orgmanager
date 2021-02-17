@@ -67,6 +67,10 @@
 		</vbox>
 	</hbox>
 
+	<dataGrid binding="staffStatusHistories">
+		<boundColumn binding="statusTime"></boundColumn>
+		<boundColumn binding="status"></boundColumn>
+	</dataGrid>
 
 	<actions>
 		<defaults />
