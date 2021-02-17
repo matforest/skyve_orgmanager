@@ -54,6 +54,7 @@
 			</item>
 		</row>
 	</form>
+	<map modelName="OfficeMap"></map>
 	<listGrid continueConversation="true" query="qStaff">
 		<filterParameter operator="equal"
 			filterBinding="homeOffice" valueBinding="bizId" />
@@ -65,8 +66,6 @@
 	</dataGrid>
 	<actions>
 		<defaults />
-
-
 	</actions>
 	<newParameters />
 </view>
