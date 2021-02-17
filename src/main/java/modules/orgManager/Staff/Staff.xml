@@ -51,7 +51,7 @@
 			<documentName>StaffStatusHistory</documentName>
 			<minCardinality>0</minCardinality>
 			<ordering>
-				<order sort="ascending" by="statusTime" />
+				<order sort="descending" by="statusTime" />
 			</ordering>
 		</collection>
 	</attributes>

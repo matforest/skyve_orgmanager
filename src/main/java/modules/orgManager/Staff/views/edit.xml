@@ -51,6 +51,7 @@
 								<rerender>
 									<properties>
 										<c:property key="update">histories</c:property>
+										<c:property key="update">locationForm</c:property>
 									</properties>
 								</rerender>
 							</onChangedHandlers>
@@ -65,7 +66,7 @@
 			</form>
 		</vbox>
 		<vbox borderTitle="Location" border="true">
-			<form responsiveWidth="12" border="false">
+			<form responsiveWidth="12" border="false" widgetId="locationForm">
 				<column />
 				<column />
 				<row>

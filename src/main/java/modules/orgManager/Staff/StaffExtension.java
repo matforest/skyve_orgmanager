@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.skyve.domain.types.DateOnly;
 import org.skyve.impl.util.TimeUtil;
+import org.skyve.util.Util;
 
 import modules.orgManager.domain.Office;
 import modules.orgManager.domain.Staff;
@@ -30,6 +31,7 @@ public class StaffExtension extends Staff {
 
 	public void home() {
 
+		Util.LOGGER.warning("Attempting to re-homing user " + this);
 		Office office = this.getHomeOffice();
 
 		if (office != null && office.getLocation() != null) {

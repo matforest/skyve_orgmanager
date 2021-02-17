@@ -60,7 +60,7 @@
 				<param name="enumClass">modules.orgManager.domain.Staff$Status</param>
 			</type>
 		</property>
-		<bag name="staffStatusHistories" order-by="statusTime asc" cascade="all-delete-orphan">
+		<bag name="staffStatusHistories" order-by="statusTime desc" cascade="all-delete-orphan">
 			<key column="parent_id" />
 			<one-to-many entity-name="orgManagerStaffStatusHistory" />
 		</bag>

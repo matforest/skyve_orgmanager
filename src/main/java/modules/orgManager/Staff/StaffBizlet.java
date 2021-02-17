@@ -14,6 +14,7 @@ import org.skyve.metadata.model.document.Bizlet;
 import org.skyve.metadata.model.document.Document;
 import org.skyve.metadata.module.Module;
 import org.skyve.util.Binder;
+import org.skyve.util.Util;
 import org.skyve.web.WebContext;
 
 import modules.admin.ModulesUtil;
@@ -56,30 +57,37 @@ public class StaffBizlet extends Bizlet<StaffExtension> {
 	@Override
 	public void preRerender(String source, StaffExtension bean, WebContext webContext) throws Exception {
 
-		if (Staff.statusPropertyName.equals(source)) {
+		// Status has changed
+		if (Staff.statusPropertyName.equals(source) && //
+				bean.originalValues().containsKey(Staff.statusPropertyName)) {
+
 			addStatusHistoryEntry(bean);
+
+			// Status is now "In the office"
+			if (Staff.Status.in.equals(bean.getStatus())) {
+				// Set the users location to the office location
+				bean.home();
+			}
 		}
 
 		super.preRerender(source, bean, webContext);
 	}
 
 	private void addStatusHistoryEntry(StaffExtension bean) {
-		if (bean.originalValues().containsKey(Staff.statusPropertyName)) {
 
-			Status currStatus = bean.getStatus();
-			StaffStatusHistoryExtension historyEntry = StaffStatusHistoryExtension.newInstance();
+		Status currStatus = bean.getStatus();
+		StaffStatusHistoryExtension historyEntry = StaffStatusHistoryExtension.newInstance();
 
-			historyEntry.setStatus(currStatus);
-			historyEntry.setStatusTime(new DateTime());
-			historyEntry.setParent(bean);
+		historyEntry.setStatus(currStatus);
+		historyEntry.setStatusTime(new DateTime());
+		historyEntry.setParent(bean);
 
-			List<StaffStatusHistoryExtension> histories = bean.getStaffStatusHistories();
-			histories.add(historyEntry);
+		List<StaffStatusHistoryExtension> histories = bean.getStaffStatusHistories();
+		histories.add(historyEntry);
 
-			Customer customer = CORE.getPersistence().getUser().getCustomer();
-			Module module = customer.getModule(Staff.MODULE_NAME);
-			Document document = module.getDocument(customer, Staff.DOCUMENT_NAME);
-			Binder.sortCollectionByMetaData(bean, customer, module, document, Staff.staffStatusHistoriesPropertyName);
-		}
+		Customer customer = CORE.getPersistence().getUser().getCustomer();
+		Module module = customer.getModule(Staff.MODULE_NAME);
+		Document document = module.getDocument(customer, Staff.DOCUMENT_NAME);
+		Binder.sortCollectionByMetaData(bean, customer, module, document, Staff.staffStatusHistoriesPropertyName);
 	}
 }
