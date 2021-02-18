@@ -17,17 +17,24 @@ public class OfficeMap extends MapModel<Office> {
 	@Override
 	public MapResult getResult(Geometry mapBounds) throws Exception {
 
+		Office office = getBean();
+		return getResultForOffice(mapBounds, office);
+	}
+
+	public static MapResult getResultForOffice(Geometry mapBounds, Office office) {
+
 		MapResult result = new MapResult();
 		List<MapItem> items = new ArrayList<>();
 		result.setItems(items);
 
-		Office office = getBean();
+		if (office == null) {
+
+			return result;
+		}
+
 		Geometry officeLocation = office.getLocation();
 
 		if (officeLocation != null) {
-
-//			result.setMapExtents(officeLocation.getEnvelopeInternal());
-
 			if (mapBounds.intersects(officeLocation)) {
 				MapItem item = new MapItem();
 				item.setBizId(office.getBizId());
@@ -55,7 +62,7 @@ public class OfficeMap extends MapModel<Office> {
 		return result;
 	}
 
-	private MapItem createStaffFeature(StaffExtension staff) {
+	private static MapItem createStaffFeature(StaffExtension staff) {
 
 		MapFeature feature = new MapFeature();
 		feature.setGeometry(staff.getLocation());
@@ -66,12 +73,10 @@ public class OfficeMap extends MapModel<Office> {
 		item.setModuleName(staff.getBizModule());
 		item.setDocumentName(staff.getBizDocument());
 		item.setInfoMarkup(staff.getBizKey() + " TODO!");
-		
+
 		System.err.println(staff.getImage());
 
 		return item;
 	}
-	
-	
 
 }

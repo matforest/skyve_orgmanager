@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://www.skyve.org/xml/document"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	name="PublicAccessView"
+	xsi:schemaLocation="http://www.skyve.org/xml/document ../../../schemas/document.xsd">
+	<singularAlias>PublicAccessView</singularAlias>
+	<pluralAlias>publicaccessviews</pluralAlias>
+	<attributes>
+		<association type="aggregation" name="selectedOffice">
+			<displayName>Selected Office</displayName>
+			<documentName>Office</documentName>
+		</association>
+	</attributes>
+	<conditions>
+		<condition name="showMap">
+			<expression><![CDATA[getSelectedOffice() != null]]></expression>
+		</condition>
+	</conditions>
+</document>

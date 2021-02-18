@@ -6,21 +6,31 @@
 	<homeRef>list</homeRef>
 	<homeDocument>Office</homeDocument>
 	<jobs>
-		<job name="jReHomeStaff" displayName="Re-Home Staff"
-			className="modules.orgManager.Staff.ReHomeJob" />
+		<job displayName="Re-Home Staff"
+			className="modules.orgManager.Staff.ReHomeJob" name="jReHomeStaff" />
 	</jobs>
 	<documents>
 		<document ref="Office" />
+		<document ref="PublicAccessView" />
 		<document ref="Staff" defaultQueryName="qStaff" />
 		<document ref="StaffStatusHistory" />
 	</documents>
 	<roles>
+		<role name="Public">
+			<description><![CDATA[Enough privileges to view Org Manager documents.]]></description>
+			<privileges>
+				<document name="Office" permission="_R__C" />
+				<document name="Staff" permission="_R__C" />
+				<document name="PublicAccessView" permission="_____" />
+			</privileges>
+		</role>
 		<role name="Viewer">
 			<description><![CDATA[Enough privileges to view Org Manager documents.]]></description>
 			<privileges>
 				<document name="Office" permission="_R__C" />
 				<document name="Staff" permission="_R__C" />
 				<document name="StaffStatusHistory" permission="_R__C" />
+				<document name="PublicAccessView" permission="_____" />
 			</privileges>
 		</role>
 		<role name="Maintainer">
@@ -31,6 +41,7 @@
 					<action name="Home" />
 				</document>
 				<document name="StaffStatusHistory" permission="CRUDC" />
+				<document name="PublicAccessView" permission="_____" />
 			</privileges>
 		</role>
 	</roles>
@@ -43,6 +54,11 @@
 			<role name="Maintainer" />
 			<role name="Viewer" />
 		</list>
+		<edit document="PublicAccessView" name="MapView">
+			<role name="Maintainer" />
+			<role name="Viewer" />
+			<role name="Public" />
+		</edit>
 	</menu>
 	<queries>
 		<query documentName="Staff" name="qStaff">
