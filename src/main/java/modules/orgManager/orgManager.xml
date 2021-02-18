@@ -11,6 +11,7 @@
 	</jobs>
 	<documents>
 		<document ref="Office" />
+		<document ref="OrgManagerDashboard" />
 		<document ref="PublicAccessView" />
 		<document ref="Staff" defaultQueryName="qStaff" />
 		<document ref="StaffStatusHistory" />
@@ -42,6 +43,7 @@
 				</document>
 				<document name="StaffStatusHistory" permission="CRUDC" />
 				<document name="PublicAccessView" permission="_____" />
+				<document name="OrgManagerDashboard" permission="_____" />
 			</privileges>
 		</role>
 	</roles>
@@ -54,10 +56,13 @@
 			<role name="Maintainer" />
 			<role name="Viewer" />
 		</list>
-		<edit document="PublicAccessView" name="MapView">
+		<edit document="PublicAccessView" name="Office Map View">
 			<role name="Maintainer" />
 			<role name="Viewer" />
 			<role name="Public" />
+		</edit>
+		<edit document="OrgManagerDashboard" name="Org Manager Dashboard">
+			<role name="Maintainer" />
 		</edit>
 	</menu>
 	<queries>
@@ -71,6 +76,13 @@
 				<column binding="lastName" />
 				<column binding="dateOfBirth" />
 				<column binding="status" />
+			</columns>
+		</query>
+		<query documentName="Office" name="qOffices">
+			<description><![CDATA[All Offices]]></description>
+			<columns>
+				<column binding="buildingName" sortOrder="ascending" />
+				<column binding="suburb" />
 			</columns>
 		</query>
 	</queries>
