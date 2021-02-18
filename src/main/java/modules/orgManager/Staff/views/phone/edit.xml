@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.skyve.org/xml/view"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="edit"
+	title="Staff"
+	xsi:schemaLocation="http://www.skyve.org/xml/view ../../../../../schemas/view.xsd"
+	xmlns:c="http://www.skyve.org/xml/common">
+
+	<hbox>
+		<vbox borderTitle="Details" border="true">
+			<form responsiveWidth="12" border="false">
+				<column responsiveWidth="3" />
+				<column />
+				<row>
+					<item>
+						<textField binding="code" disabled="true" />
+					</item>
+				</row>
+				<row>
+					<item>
+						<default binding="name" />
+					</item>
+				</row>
+				<row>
+					<item>
+						<default binding="lastName" />
+					</item>
+				</row>
+				<row>
+					<item>
+						<contentImage binding="image" />
+					</item>
+				</row>
+				<row>
+					<item>
+						<textField binding="dateOfBirth">
+							<onChangedHandlers>
+								<rerender />
+							</onChangedHandlers>
+						</textField>
+					</item>
+				</row>
+				<row>
+					<item>
+						<textField binding="ageInYears" disabled="true" />
+					</item>
+				</row>
+				<row>
+					<item>
+						<combo binding="status" />
+					</item>
+				</row>
+				<row>
+					<item>
+						<default binding="homeOffice" />
+					</item>
+				</row>
+				<row>
+					<item>
+						<contentLink binding="resume" />
+					</item>
+				</row>
+				<row>
+					<item>
+						<button action="Home" pixelWidth="200" />
+					</item>
+				</row>
+				<row>
+					<item showLabel="false" colspan="2">
+						<geometryMap binding="location">
+							<onChangedHandlers />
+						</geometryMap>
+					</item>
+				</row>
+			</form>
+		</vbox>
+	</hbox>
+
+	<actions>
+		<defaults />
+
+		<action className="Home" displayName="Home"
+			iconStyleClass="fa fa-home" />
+	</actions>
+	<newParameters>
+		<parameter fromBinding="homeOffice" boundTo="homeOffice" />
+	</newParameters>
+</view>
