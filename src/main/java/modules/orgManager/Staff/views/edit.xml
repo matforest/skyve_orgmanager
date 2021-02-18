@@ -102,5 +102,7 @@
 		<action className="Home" displayName="Home"
 			iconStyleClass="fa fa-home" />
 	</actions>
-	<newParameters />
+	<newParameters>
+		<parameter fromBinding="homeOffice" boundTo="homeOffice" />
+	</newParameters>
 </view>

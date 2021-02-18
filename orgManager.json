@@ -85,7 +85,7 @@
 			// JNDI name
 			jndi: "java:/orgManagerDB",
 			// Dialect
-			dialect: "${SKYVE_DATASTORE_DIALECT:org.skyve.impl.persistence.hibernate.dialect.H2SpatialDialect}",
+			dialect: "${SKYVE_DATASTORE_DIALECT:org.skyve.impl.persistence.hibernate.dialect.MySQL8InnoDBSpatialDialect}",
 			// Timeout for data store connections employed in general UI/forms processing - 0 indicates no timeout
 			oltpConnectionTimeoutInSeconds: 30,
 			// Timeout for data store connections employed when running jobs and background tasks - 0 indicates no timeout

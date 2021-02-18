@@ -134,7 +134,8 @@
 					<customer>skyve</customer>
 					<generateDomainConfig>
 						<debug>false</debug>
-						<dialect>H2_NO_INDEXES</dialect>
+						<!-- <dialect>H2_NO_INDEXES</dialect> -->
+						<dialect>MYSQL_8</dialect>
 						<excludedModules />
 					</generateDomainConfig>
 				</configuration>
